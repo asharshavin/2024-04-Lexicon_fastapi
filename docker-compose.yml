@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  redis:
+    image: redis:7
+    container_name: redis_app
+
+  app:
+    build:
+      context: .
+    container_name: fastapi_app
+    ports:
+      - 7777:8000
+    depends_on:
+      - redis
+
+
